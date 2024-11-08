@@ -2,6 +2,7 @@
 
 import streamlit as st
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.common.exceptions import NoSuchWindowException, WebDriverException
 import time
 
@@ -21,12 +22,14 @@ def play_persInformation():
     st.subheader("중장년층 개인정보보호 교육")
     # st.text("중장년층 개인정보보호 교육")
 
+    service = Service('d:/sw/pythonpractice/streamlit/chromedriver.exe')
+    
     # ChromeOptions 설정
     options = webdriver.ChromeOptions()
     options.add_argument('--log-level=3')                                   # 3 -- ERROR만 표시
     options.add_experimental_option('excludeSwitches', ['enable-logging'])  # 불필요한 에러메세지 삭제
 
-    driver = webdriver.Chrome(options=options)  # Chrome 브라우저 열기
+    driver = webdriver.Chrome(service=service, options=options)  # Chrome 브라우저 열기
     play_time = 0
 
     try:

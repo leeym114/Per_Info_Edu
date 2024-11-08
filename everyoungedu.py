@@ -1,8 +1,8 @@
 # streamlit run ./streamlit/everyoungedu.py
 
 import streamlit as st
-from selenium.common.exceptions import NoSuchWindowException, WebDriverException
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchWindowException, WebDriverException
 import time
 
 def playTime_display(playstatus, playtime):

@@ -3,7 +3,7 @@
 import streamlit as st
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-# from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.common.exceptions import NoSuchWindowException, WebDriverException
 import time
 
@@ -30,8 +30,8 @@ def play_persInformation():
     options.add_argument('--log-level=3')                                   # 3 -- ERROR만 표시
     options.add_experimental_option('excludeSwitches', ['enable-logging'])  # 불필요한 에러메세지 삭제
 
-    driver = webdriver.Chrome(ChromeDriverManager().install())
-    # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    # driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
     # driver = webdriver.Chrome(options=options)  # Chrome 브라우저 열기
     play_time = 0
 
